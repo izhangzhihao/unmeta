@@ -26,7 +26,7 @@ gradleEnterprise {
     }
 }
 
-rootProject.name = "Unmeta Kotlin classes plugin"
+rootProject.name = "Unmeta Kotlin gradle plugin"
 
 include(":example")
 includeBuild("plugin-build")
