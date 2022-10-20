@@ -1,6 +1,6 @@
 # Unmeta Kotlin gradle plugin 🐘
 
-A Gradle plugin to remove all Kotlin @Metadata and @DebugMetadata annotations from the build output.
+A Gradle plugin to remove all Kotlin @Metadata and @DebugMetadata annotations from the compile output and jars.
 
 Kotlin @Metadata and @DebugMetadata annotations are not fully processed by ProGuard / R8 and contain un-obfuscated symbol information, both in binary and plain text forms. This information can be used to more easily reverse engineer your code.
 
@@ -31,4 +31,3 @@ Feel free to open a issue or submit a pull request for any bugs/improvements.
 ## License 📄
 
 This template is licensed under the MIT License - see the [License](License) file for details.
-Please note that the generated template is offering to start with a MIT license but you can change it to whatever you wish, as long as you attribute under the MIT terms that you're using the template.
