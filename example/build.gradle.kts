@@ -1,4 +1,4 @@
 plugins {
     kotlin("jvm")
-    id("com.github.izhangzhihao.unmeta") version "1.0.0"
+    id("io.github.izhangzhihao.unmeta") version "1.0.0"
 }

@@ -14,7 +14,7 @@ To use the plugin add the following to your app `build.gradle.kt`:
 ```kotlin
 plugins {
     kotlin("jvm")
-    id("com.github.izhangzhihao.unmeta") version "1.0.0"
+    id("io.github.izhangzhihao.unmeta") version "1.0.0"
 }
 ```
 

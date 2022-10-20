@@ -1,4 +1,4 @@
-package com.github.izhangzhihao.unmeta
+package io.github.izhangzhihao.unmeta
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input

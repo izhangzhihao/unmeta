@@ -1,4 +1,4 @@
-package com.github.izhangzhihao.unmeta
+package io.github.izhangzhihao.unmeta
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
