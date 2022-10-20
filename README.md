@@ -16,8 +16,27 @@ plugins {
     kotlin("jvm")
     id("io.github.izhangzhihao.unmeta") version "1.0.0"
 }
+
+unmeta {
+    enable.set(true)
+}
 ```
 
+To enable the plugin only for release builds add this section:
+
+```kotlin
+gradle.taskGraph.whenReady {
+    if (allTasks.any { it.name.contains("buildPlugin") }) {
+        unmeta {
+            enable.set(true)
+        }
+    } else {
+        unmeta {
+            enable.set(false)
+        }
+    }
+}
+```
 
 ### Dependency substitution
 

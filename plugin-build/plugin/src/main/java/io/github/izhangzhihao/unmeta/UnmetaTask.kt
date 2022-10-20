@@ -1,7 +1,9 @@
 package io.github.izhangzhihao.unmeta
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.options.Option
 import org.objectweb.asm.ClassReader
@@ -17,21 +19,22 @@ abstract class UnmetaTask : DefaultTask() {
 
     @get:Input
     @get:Option(option = "enable", description = "is unmeta enabled")
-    abstract var enable: Boolean
+    @get:Optional
+    abstract val enable: Property<Boolean>
 
     @TaskAction
     fun unmetaAction() {
-        logger.info("Start drop @Metadata & @DebugMetadata from kotlin classes")
-        if (!enable) {
+        if (!enable.get()) {
             logger.warn("unmeta is disabled")
-            return
-        }
-        project.buildDir.listFiles()
-            ?.forEach { file ->
-                if (file.isDirectory) {
-                    dropMetadata(file)
+        } else {
+            logger.info("Start drop @Metadata & @DebugMetadata from kotlin classes")
+            project.buildDir.listFiles()
+                ?.forEach { file ->
+                    if (file.isDirectory) {
+                        dropMetadata(file)
+                    }
                 }
-            }
+        }
     }
 
     private fun dropMetadata(file: File) {

@@ -8,11 +8,9 @@ class UnmetaPlugin : Plugin<Project> {
     private lateinit var extension: UnmetaExtension
 
     override fun apply(project: Project) {
-        extension = project.extensions.create("unmeta", UnmetaExtension::class.java)
-
+        extension = project.extensions.create("unmeta", UnmetaExtension::class.java, project)
         val unmetaTaskTask = project.tasks.create("unmeta", UnmetaTask::class.java)
-
+        unmetaTaskTask.enable.set(extension.enable)
         project.tasks.getByName("compileKotlin").finalizedBy(unmetaTaskTask)
-        unmetaTaskTask.enable = extension.enable
     }
 }
