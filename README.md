@@ -14,7 +14,7 @@ To use the plugin add the following to your app `build.gradle.kt`:
 ```kotlin
 plugins {
     kotlin("jvm")
-    id("io.github.izhangzhihao.unmeta") version "1.0.1"
+    id("io.github.izhangzhihao.unmeta") version "1.0.0"
 }
 
 unmeta {
@@ -26,7 +26,7 @@ To enable the plugin only for release builds add this section:
 
 ```kotlin
 gradle.taskGraph.whenReady {
-    if (allTasks.any { it.name.contains("buildPlugin") }) {
+    if (allTasks.any { it.name.contains("release") }) {
         unmeta {
             enable.set(true)
         }
