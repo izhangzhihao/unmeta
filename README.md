@@ -43,9 +43,6 @@ gradle.taskGraph.whenReady {
 ```
 ./gradlew clean jar --dry-run
 :clean SKIPPED
-:setupDependencies SKIPPED
-:patchPluginXml SKIPPED
-:verifyPluginConfiguration SKIPPED
 :compileKotlin SKIPPED
 :unmeta SKIPPED
 :compileJava SKIPPED
