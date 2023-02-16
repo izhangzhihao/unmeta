@@ -9,7 +9,7 @@ This plugin allows removing all Kotlin @Metadata / @DebugMetadata annotations fr
 * you do not intend to use the resulting binaries as a Kotlin library (@Metadata annotations are used to determine Kotlin function definitions),
 * you are not using Kotlin Reflection (certain reflection functionality depends on the presence of the @Metadata annotations).
 
-## By the Kotlin dsl in `build.gradle.kt`
+## By using the Kotlin dsl in `build.gradle.kt`
 
 ```kotlin
 plugins {
