@@ -97,6 +97,10 @@ Please note that the project relies on module name/group in order for [dependenc
 
 Feel free to open a issue or submit a pull request for any bugs/improvements.
 
+```bash
+./gradlew --project-dir plugin-build publishToMavenLocal
+```
+
 ## License 📄
 
 This template is licensed under the MIT License - see the [License](License) file for details.
