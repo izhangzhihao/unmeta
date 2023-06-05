@@ -1,10 +1,10 @@
 # Unmeta Kotlin gradle plugin 🐘
 
-A Gradle plugin to remove all Kotlin @Metadata and @DebugMetadata annotations from the compile output and jars.
+A Gradle plugin to remove all Kotlin @Metadata / @DebugMetadata / @SourceDebugExtension annotations from the compile output and jars.
 
 Kotlin @Metadata and @DebugMetadata annotations are not fully processed by ProGuard / R8 and contain un-obfuscated symbol information, both in binary and plain text forms. This information can be used to more easily reverse engineer your code.
 
-This plugin allows removing all Kotlin @Metadata / @DebugMetadata annotations from generated class files. This is safe to do as long as:
+This plugin allows removing all Kotlin @Metadata / @DebugMetadata / @SourceDebugExtension annotations from generated class files. This is safe to do as long as:
 
 * you do not intend to use the resulting binaries as a Kotlin library (@Metadata annotations are used to determine Kotlin function definitions),
 * you are not using Kotlin Reflection (certain reflection functionality depends on the presence of the @Metadata annotations).
@@ -14,7 +14,7 @@ This plugin allows removing all Kotlin @Metadata / @DebugMetadata annotations fr
 ```kotlin
 plugins {
     kotlin("jvm")
-    id("io.github.izhangzhihao.unmeta") version "1.0.0"
+    id("io.github.izhangzhihao.unmeta") version "1.0.1"
 }
 
 unmeta {
@@ -42,8 +42,8 @@ gradle.taskGraph.whenReady {
 
 ```kotlin
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
-    id "io.github.izhangzhihao.unmeta" version "1.0.0"
+    id 'org.jetbrains.kotlin.jvm' version '1.8.21'
+    id "io.github.izhangzhihao.unmeta" version "1.0.1"
 }
 
 unmeta {
@@ -84,7 +84,7 @@ You might need this to force the `unmeta` task runs before the `jar` task:
 
 ```kotlin
 jar {
-        mustRunAfter("unmeta")
+    mustRunAfter("unmeta")
 }
 ```
 
