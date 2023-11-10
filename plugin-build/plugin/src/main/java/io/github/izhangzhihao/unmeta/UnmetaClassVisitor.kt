@@ -6,7 +6,7 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.Opcodes
 
 class UnmetaClassVisitor(private val path: String, cv: ClassVisitor, private val logger: Logger) :
-    ClassVisitor(Opcodes.ASM7, cv), Opcodes {
+    ClassVisitor(Opcodes.ASM9, cv), Opcodes {
 
     var modified = false
 
