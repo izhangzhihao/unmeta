@@ -13,6 +13,11 @@ jobs:
       GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}
     if: ${{ !contains(github.event.head_commit.message, 'ci skip') }}
     steps:
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: 17
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: Cache Gradle Caches
