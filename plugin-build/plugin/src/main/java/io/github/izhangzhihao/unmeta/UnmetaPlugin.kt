@@ -11,6 +11,11 @@ class UnmetaPlugin : Plugin<Project> {
         extension = project.extensions.create("unmeta", UnmetaExtension::class.java, project)
         val unmetaTaskTask = project.tasks.create("unmeta", UnmetaTask::class.java)
         unmetaTaskTask.enable.set(extension.enable)
-        project.tasks.getByName("compileKotlin").finalizedBy(unmetaTaskTask)
+        val t = try {
+            project.tasks.getByName("compileKotlin")
+        } catch (e: org.gradle.api.UnknownTaskException) {
+            project.tasks.getByName("compileKotlinJvm")
+        }
+        t.finalizedBy(unmetaTaskTask)
     }
 }
